@@ -1,22 +1,30 @@
+```
 gnnsyn/
-│
 ├── config/
-│   └── gnn_arch_example.json     # 示例：存放 GNNsyn 需要的配置(JSON)
-│
+│   ├── mp_configs/
+│   │   ├── GCN.json
+│   │   ├── GraphSAGE.json
+│   │   ├── GAT.json
+│   │   └── ... (other operator configs)
+│   └── task_configs/
+│       ├── cora_node.json
+│       ├── reddit_node.json
+│       ├── pubmed_node.json
+│       ├── ogbn_arxiv_node.json
+│       └── ... (other dataset configs)
 ├── data/
-│   └── dataset.py                # 数据加载 & 预处理模块
-│
+│   └── dataset.py              # If you have custom dataset classes
 ├── model/
-│   ├── pre_process.py            # Pre-Process Layer
-│   ├── message_passing.py        # Message Passing Layer
-│   ├── temporal.py               # Temporal Layers (RNN/CNN/Attention)
-│   ├── post_process.py           # Post-Process Layer
-│   └── gnnsyn_model.py           # 整合各模块，形成完整 GNNsynModel
-│
+│   ├── pre_process.py          # PreProcessLayer
+│   ├── message_passing.py      # MessagePassingLayer + forward_full / forward_subgraph
+│   ├── temporal.py             # (Optional) RNNTemporal, etc.
+│   ├── post_process.py         # PostProcessLayer
+│   └── gnnsyn_model.py         # GNNsynModel (forward, forward_ns) orchestrating all modules
 ├── train/
-│   └── trainer.py                # 训练 & 评测逻辑
-│
+│   └── trainer.py              # train_one_epoch_full, train_one_epoch_ns, eval_model_xxx, etc.
 ├── utils/
-│   └── config_parser.py          # 解析 JSON 配置文件，生成模型 & 训练参数
-│
-└── main.ipynb                    # Jupyter Notebook: Sanity Test (最常见的GNN & 数据集)
+│   └── gnn_config_parser.py    # parse_gnn_config => merges mp_config + task_config, builds GNNsynModel
+├── main.ipynb                  # Example notebook for running experiments (Cora, Reddit, etc.)
+├── README.md                   # Project overview & instructions
+└── requirements.txt            # (Optional) pinned package versions, PyTorch Geometric deps, etc.
+```
