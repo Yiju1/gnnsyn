@@ -1,6 +1,7 @@
 torch
 torchvision
 pyg_lib
+torch_geometric
 torch_scatter
 torch_sparse
 torch_cluster
