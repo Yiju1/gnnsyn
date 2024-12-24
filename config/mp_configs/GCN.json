@@ -1,0 +1,22 @@
+{
+  "name": "GCN",
+  "num_mp_layers": 2,
+  "mp_params": [
+    {
+      "out_dim": 64,
+      "conv_type": "gcn",
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_bn": true,
+      "skip_type": "none"
+    },
+    {
+      "out_dim": 64,
+      "conv_type": "gcn",
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_bn": true,
+      "skip_type": "none"
+    }
+  ]
+}

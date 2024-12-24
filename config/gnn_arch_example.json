@@ -1,0 +1,56 @@
+{
+  "gnn_arch": {
+    "num_pre_layers": 1,
+    "pre_params": [
+      {
+        "out_dim": 64,
+        "activation": "relu",
+        "dropout": 0.1,
+        "use_norm": true,
+        "func_type": "linear"
+      }
+    ],
+    "num_mp_layers": 2,
+    "mp_params": [
+      {
+        "out_dim": 64,
+        "conv_type": "gcn",
+        "activation": "relu",
+        "dropout": 0.1,
+        "use_bn": true,
+        "skip_type": "none"
+      },
+      {
+        "out_dim": 64,
+        "conv_type": "gcn",
+        "activation": "relu",
+        "dropout": 0.1,
+        "use_bn": true,
+        "skip_type": "none"
+      }
+    ],
+    "num_post_layers": 1,
+    "post_params": [
+      {
+        "out_dim": 64,
+        "activation": "relu",
+        "dropout": 0.1,
+        "use_norm": true
+      }
+    ],
+    "use_temporal": false,
+    "temporal_params": {},
+    "pool_type": "mean",
+    "task_type": "node"
+  },
+  "model_io": {
+    "in_dim": 1433,
+    "hidden_dim": 64,
+    "out_dim": 7
+  },
+  "training": {
+    "batch_size": 1,
+    "lr": 0.01,
+    "epochs": 100
+  }
+}

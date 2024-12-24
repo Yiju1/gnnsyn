@@ -1,0 +1,36 @@
+{
+  "task_name": "pubmed_node",
+  "model_io": {
+    "in_dim": 500,
+    "hidden_dim": 64,
+    "out_dim": 3
+  },
+  "num_pre_layers": 1,
+  "pre_params": [
+    {
+      "out_dim": 64,
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_norm": true,
+      "func_type": "linear"
+    }
+  ],
+  "num_post_layers": 1,
+  "post_params": [
+    {
+      "out_dim": 64,
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_norm": true
+    }
+  ],
+  "learning_config": {
+    "batch_size": 1,
+    "lr": 0.01,
+    "epochs": 100
+  },
+  "pool_type": "mean",
+  "task_type": "node",
+  "use_temporal": false,
+  "temporal_params": {}
+}

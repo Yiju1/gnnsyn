@@ -1,0 +1,36 @@
+{
+  "task_name": "ogbn_arxiv_node",
+  "model_io": {
+    "in_dim": 128,
+    "hidden_dim": 128,
+    "out_dim": 40
+  },
+  "num_pre_layers": 1,
+  "pre_params": [
+    {
+      "out_dim": 128,
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_norm": true,
+      "func_type": "linear"
+    }
+  ],
+  "num_post_layers": 1,
+  "post_params": [
+    {
+      "out_dim": 128,
+      "activation": "relu",
+      "dropout": 0.1,
+      "use_norm": true
+    }
+  ],
+  "learning_config": {
+    "batch_size": 1024,
+    "lr": 0.01,
+    "epochs": 10
+  },
+  "pool_type": "mean",
+  "task_type": "node",
+  "use_temporal": false,
+  "temporal_params": {}
+}
