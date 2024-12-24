@@ -28,3 +28,8 @@ gnnsyn/
 ├── README.md                   # Project overview & instructions
 └── requirements.txt            # (Optional) pinned package versions, PyTorch Geometric deps, etc.
 ```
+
+依赖安装命令：
+```
+pip install -r requirements.txt -f https://data.pyg.org/whl/torch-2.1.0+cu121.html
+```
